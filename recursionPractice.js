@@ -27,6 +27,7 @@ function fib(num){
     return fib(num - 1) + fib(num - 2)
 }
 
+
 function reverse(str) {
 
     if (str.length === 1) return str
@@ -49,6 +50,7 @@ function isPalindrome(str){
     }
 }
 
+
 function someRecursive(arr, callback){
   
     if (arr.length === 0) {
@@ -62,6 +64,7 @@ function someRecursive(arr, callback){
     }
 }
 
+
 function flatten(arr){
     let newArr = []
 
@@ -74,4 +77,72 @@ function flatten(arr){
     }
 
     return newArr
+}
+
+
+function capitalizeFirst (arr) {
+    
+    if (arr.length === 0) {
+        return arr
+    }
+
+    for (let str of arr) {
+        let capitalizedString = str[0].toUpperCase() + str.slice(1).toLowerCase()
+        let result = [capitalizedString]
+        return result.concat(capitalizeFirst(arr.slice(1)))
+    }
+  }
+
+
+  function nestedEvenSum (obj, sum = 0) {
+        for (let key in obj) {
+            if (typeof obj[key] === 'object') {
+                sum += nestedEvenSum(obj[key])
+            } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
+                sum += obj[key]
+            }
+        }
+        return sum
+  }
+
+
+function capitalizeWords (arr) {
+    if (arr.length === 1) {
+        return arr[0].toUpperCase()
+    }
+
+    return [arr[0].toUpperCase()].concat(capitalizeWords(arr.slice(1)))
+}
+
+function stringifyNumbers (obj) {
+
+    let newObj = {}
+    for (let key in obj) {
+        if (typeof obj[key] === 'number') {
+            newObj[key] = obj[key].toString()
+        } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            newObj[key] = stringifyNumbers(obj[key])
+        } else {
+            newObj[key] = obj[key]
+        }
+    }
+
+    return newObj
+}
+
+
+function collectStrings(obj) {
+
+    let results = []
+
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            results.push(obj[key])
+        } else if (typeof obj[key] === 'object') {
+            results = results.concat(collectStrings(obj[key]))
+        }
+    }
+
+    return results
+    
 }
