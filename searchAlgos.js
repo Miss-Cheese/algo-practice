@@ -7,7 +7,7 @@ function linearSearch(arr, value) {
     return -1
 }
 
-
+// binary search
 function binarySearch(arr, val) {
     let start = 0
     let end = arr.length - 1
@@ -27,5 +27,20 @@ function binarySearch(arr, val) {
     }
 
     return -1
+}
 
+function naiveStringSearch(longString, shortString) {
+    let count = 0
+
+    for (let i = 0; i < longString.length; i++) {
+        for (let k = 0; k < shortString.length; k++) {
+            if (shortString[k] !== longString[i + k]) {
+                break
+            }
+            if (k === shortString.length - 1) {
+                count++
+            }
+        }
+    }
+    return count
 }
