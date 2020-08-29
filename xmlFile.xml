@@ -1,0 +1,13 @@
+3 
+# Properties start
+property.containing.equal.sign=equal=sign=value
+# Property end
+<tenant>
+    <name>ESOTenant</name>
+    <description>${property.containing.equal.sign}</description>
+    <urlName>eso</urlName>
+</tenant>
+<!-- 
+xmlProper = [<tenant>, <name>ESOTenant</name>, <description>${property.containing.equal.sign}</description>, <urlName>eso</urlName>, </tenant>]
+
+[3, # Properties start, property.containing.equal.sign=equal=sign=value, # Property end,  <tenant>, <name>ESOTenant</name>, <description>${property.containing.equal.sign}</description>, <urlName>eso</urlName>, </tenant>] -->
